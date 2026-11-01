@@ -1,6 +1,6 @@
 /* AFINA · guarda la app en el dispositivo para usarla sin conexión.
    Si cambia algún archivo, subir el número de VERSION para que se actualice. */
-const VERSION = 'afina-v1';
+const VERSION = 'afina-v2';
 const ARCHIVOS = [
  "./",
  "ayuda/abeja.mp3",

@@ -52,7 +52,8 @@ AS.pantallas = (function(){
     mostrar(el('div', {},
       el('div', { class: 'home-hero' },
         el('span', { class: 'brand-mark', 'aria-hidden': 'true' }, el('span'), el('span'), el('span'), el('span')),
-        el('h1', {}, el('span', { class: 'tone-a' }, AS.config.tituloParte1), ' ', el('span', { class: 'tone-b' }, AS.config.tituloParte2)),
+        el('h1', {}, el('span', { class: 'tone-a' }, AS.config.tituloParte1), AS.config.tituloSeparador === undefined ? ' ' : AS.config.tituloSeparador, el('span', { class: 'tone-b' }, AS.config.tituloParte2)),
+        AS.config.subtitulo ? el('p', { class: 'home-subtitle' }, AS.config.subtitulo) : '',
         AS.ui.indicacion(TEXTO_INICIO, 'consignas/inicio.mp3')
       ),
       el('div', { class: 'levels-grid' }, tarjetas),

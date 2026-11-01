@@ -4,8 +4,10 @@
 window.AS = window.AS || {};
 
 AS.config = {
-  tituloParte1: 'Conciencia',   // primera palabra del título (en verde)
-  tituloParte2: 'Fonológica',   // segunda palabra del título (en azul)
+  tituloParte1: 'AFI',          // primera parte del título (en verde)
+  tituloParte2: 'NA',           // segunda parte del título (en azul)
+  tituloSeparador: '',          // entre las dos partes ('' = pegadas, ' ' = con espacio)
+  subtitulo: 'Alfabetización Fónica Interactiva Nivelada para Adolescentes',   // debajo del título (opcional)
   credito: 'Trabajo final · Licenciatura en Alfabetización Inicial · UNaHur',
 
   // Cuántos casilleros muestra el menú de cada nivel. Los que no tienen
