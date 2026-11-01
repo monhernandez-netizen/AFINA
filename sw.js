@@ -1,8 +1,13 @@
 /* AFINA · guarda la app en el dispositivo para usarla sin conexión.
    Si cambia algún archivo, subir el número de VERSION para que se actualice. */
-const VERSION = 'afina-v6';
+const VERSION = 'afina-v7';
 const ARCHIVOS = [
  "./",
+ "fonts/andika-latin-400-normal.woff2",
+ "fonts/andika-latin-700-normal.woff2",
+ "fonts/nunito-latin-500-normal.woff2",
+ "fonts/nunito-latin-700-normal.woff2",
+ "fonts/nunito-latin-800-normal.woff2",
  "ayuda/abeja.mp3",
  "ayuda/banana.mp3",
  "ayuda/caracol.mp3",

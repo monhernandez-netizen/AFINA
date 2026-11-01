@@ -27,7 +27,7 @@ Trabajo final de la Licenciatura en Alfabetización Inicial · UNaHur.
 | **Usarla sin internet** | Instalarla (o abrirla) **una vez con internet**. Queda guardada en el dispositivo y después funciona sin conexión. |
 | **Usarla desde una carpeta** | Descargar el repositorio, descomprimir y abrir `index.html` con el navegador. |
 
-**Importante:** la primera vez hace falta internet para que se guarden todas las imágenes y audios (unos 23 MB). Las tipografías se descargan de Google Fonts; sin conexión se usa una tipografía común del dispositivo y todo sigue funcionando.
+**Importante:** la primera vez hace falta internet para que se guarden todas las imágenes y audios (unos 23 MB). Las tipografías (Andika y Nunito) vienen incluidas en la app, por lo que se ven igual sin conexión.
 
 ## Cómo se actualiza
 
