@@ -6,7 +6,7 @@
 
 AFINA es una aplicación web para entrenar la conciencia fonológica jugando: escuchar, discriminar sonidos, unir imágenes con letras y palabras, contar sonidos y escribir. Está pensada para adolescentes que están aprendiendo a leer y escribir.
 
-Trabajo final de la Licenciatura en Alfabetización Inicial · UNaHur.
+Trabajo final de la Especialización en Alfabetización Inicial · UNaHur.
 
 **Probala acá:** https://monhernandez-netizen.github.io/afina/
 
@@ -64,4 +64,4 @@ Para revisar que no falte ninguna imagen ni audio, abrir la app agregando `?revi
 
 ## Créditos
 
-Autoras: Beatriz Hernández y Liliana Yovine · Trabajo final de la Licenciatura en Alfabetización Inicial, Universidad Nacional de Hurlingham (UNaHur).
+Autoras: Beatriz Hernández y Liliana Yovine · Trabajo final de la Especialización en Alfabetización Inicial, Universidad Nacional de Hurlingham (UNaHur).
