@@ -199,7 +199,7 @@ AS.palabras = {
   tren_foto:      { texto: 'tren',   inicial: 'T', sonidos: 4, ayuda: 'ayuda/tren.mp3',   voz: 'voz/tren.mp3' },
   clavo_foto:     { texto: 'clavo',  inicial: 'C', sonidos: 5, ayuda: 'ayuda/clavo.mp3',  voz: 'voz/clavo.mp3' },
   dragon_foto:    { texto: 'dragón', inicial: 'D', sonidos: 6, ayuda: 'ayuda/dragon.mp3', voz: 'voz/dragon.mp3' },
-  payaso_foto:    { texto: 'payaso', inicial: 'P', sonidos: 6 },
+  payaso_foto:    { texto: 'payaso', inicial: 'P', sonidos: 6, voz: 'voz/payaso.mp3' },
 
   // ---- Animales ----
   flamenco: { texto: 'flamenco', inicial: 'F', sonidos: 8 },

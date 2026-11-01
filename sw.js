@@ -1,6 +1,6 @@
 /* AFINA · guarda la app en el dispositivo para usarla sin conexión.
    Si cambia algún archivo, subir el número de VERSION para que se actualice. */
-const VERSION = 'afina-v4';
+const VERSION = 'afina-v5';
 const ARCHIVOS = [
  "./",
  "ayuda/abeja.mp3",
@@ -300,6 +300,11 @@ const ARCHIVOS = [
  "voz/tomate.mp3",
  "voz/tortuga.mp3",
  "voz/tren.mp3",
+ "voz/luna.mp3",
+ "voz/banana.mp3",
+ "voz/abeja.mp3",
+ "voz/momia.mp3",
+ "voz/payaso.mp3",
  "voz/una.mp3",
  "voz/uva.mp3",
  "voz/vela.mp3"
