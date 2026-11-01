@@ -57,7 +57,7 @@ AS.pantallas = (function(){
         AS.ui.indicacion(TEXTO_INICIO, 'consignas/inicio.mp3')
       ),
       el('div', { class: 'levels-grid' }, tarjetas),
-      el('p', { class: 'credit-line' }, AS.config.credito)
+      AS.config.credito ? el('p', { class: 'credit-line' }, AS.config.credito) : null
     ));
   }
 
