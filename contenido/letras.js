@@ -53,8 +53,8 @@ AS.letras = [
    ============================================================ */
 AS.gruposLetras = {
   vocal:       ['a', 'e', 'i', 'o', 'u'],
-  prolongable: ['f', 'j', 'l', 'll', 'm', 'n', 'nn', 'r', 'rr', 's', 'v', 'y', 'z'],
-  explosiva:   ['b', 'c', 'ch', 'd', 'g', 'k', 'p', 'q', 't'],
+  prolongable: ['b', 'd', 'f', 'g', 'j', 'l', 'll', 'm', 'n', 'nn', 'r', 'rr', 's', 'v', 'y', 'z'],
+  explosiva:   ['c', 'ch', 'k', 'p', 'q', 't'],
   otra:        ['h', 'w', 'x'],
 };
 AS.grupoDeLetra = function(id){
