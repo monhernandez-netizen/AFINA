@@ -1,0 +1,1183 @@
+  :root{
+    --paper: #FDFBF7;
+    --ink: #262220;
+    --ink-soft: #6b6259;
+    --border: #E4DDD2;
+    --vowel-wash: #FFE8DE;
+    --vowel-accent: #E8734E;
+    --consonant-wash: #E3EFE6;
+    --consonant-accent: #4C8A6A;
+    --card-shadow: 0 2px 0 rgba(38,34,32,0.06), 0 12px 24px -12px rgba(38,34,32,0.15);
+    --unahur-green: #56A42C;
+    --unahur-blue: #05A3C8;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html, body{
+    margin:0;
+    padding:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Nunito', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior: none;
+  }
+
+  body{
+    min-height: 100vh;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding: clamp(16px, 4vw, 40px);
+    text-transform: uppercase;
+  }
+
+  a{ color: inherit; text-decoration: none; }
+
+  .screen{ display:none; width:100%; flex-direction:column; align-items:center; }
+  .screen.active{ display:flex; }
+
+  header{
+    width:100%;
+    max-width: 760px;
+    text-align:center;
+    margin-bottom: clamp(18px, 3vw, 28px);
+  }
+
+  h1{
+    font-weight:800;
+    font-size: clamp(1.4rem, 3.2vw, 1.9rem);
+    margin: 0 0 4px 0;
+    letter-spacing: -0.01em;
+  }
+
+  header p{
+    margin:0;
+    color: var(--ink-soft);
+    font-size: clamp(0.85rem, 2vw, 0.98rem);
+    font-weight:500;
+  }
+
+  .instruction-row{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap: 8px;
+  }
+
+  .instruction-speaker{
+    appearance:none;
+    border:none;
+    flex-shrink:0;
+    width: 30px; height: 30px;
+    border-radius:50%;
+    background: var(--level-accent, var(--unahur-blue));
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+  }
+  .instruction-speaker svg{ width: 56%; height: 56%; }
+  .instruction-speaker:active{ transform: translateY(1px); }
+
+  footer{
+    margin-top: 22px;
+    color: var(--ink-soft);
+    font-size: 0.8rem;
+    text-align:center;
+    max-width: 600px;
+  }
+
+  .back-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-weight:700;
+    font-size:0.85rem;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+    align-self:flex-start;
+    max-width:760px;
+    width:100%;
+    background:none;
+    border:none;
+    padding:0;
+    cursor:pointer;
+    font-family:inherit;
+  }
+  .back-link:hover{ color: var(--ink); }
+
+  /* ---------- Pantalla de inicio ---------- */
+
+  .home-hero{
+    text-align:center;
+    margin-bottom: clamp(20px, 4vw, 32px);
+  }
+  .home-hero h1{ font-size: clamp(1.7rem, 4.5vw, 2.5rem); }
+  .home-hero h1 .tone-a{ color: var(--unahur-green); }
+  .home-hero h1 .tone-b{ color: var(--unahur-blue); }
+  .home-hero p{ font-size: clamp(0.95rem, 2.2vw, 1.1rem); }
+
+  .brand-mark{
+    display:inline-grid;
+    grid-template-columns: repeat(2, 9px);
+    grid-template-rows: repeat(2, 9px);
+    gap: 3px;
+    margin-bottom: 10px;
+  }
+  .brand-mark span{ border-radius: 4px; }
+  .brand-mark span:nth-child(1),
+  .brand-mark span:nth-child(4){ background: var(--unahur-green); }
+  .brand-mark span:nth-child(2),
+  .brand-mark span:nth-child(3){ background: var(--unahur-blue); }
+
+  .credit-line{
+    margin-top: 26px;
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    text-align:center;
+    letter-spacing: 0.01em;
+  }
+
+  .levels-grid{
+    width:100%;
+    max-width: 640px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(12px, 3vw, 18px);
+  }
+  @media (max-width: 420px){ .levels-grid{ gap: 10px; } }
+
+  .level-card{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap: 10px;
+    background:#fff;
+    border: none;
+    border-radius: 26px;
+    padding: clamp(18px, 4vw, 26px) clamp(10px, 3vw, 16px) 18px;
+    box-shadow: 0 3px 0 rgba(38,34,32,0.08), 0 14px 26px -14px rgba(38,34,32,0.28);
+    overflow:hidden;
+    opacity:0;
+    transform: translateY(14px) scale(0.97);
+    animation: card-in 0.5s ease forwards;
+    cursor:pointer;
+    font-family:inherit;
+  }
+  .level-card:nth-child(1){ animation-delay: 0.05s; }
+  .level-card:nth-child(2){ animation-delay: 0.13s; }
+  .level-card:nth-child(3){ animation-delay: 0.21s; }
+  .level-card:nth-child(4){ animation-delay: 0.29s; }
+
+  @keyframes card-in{ to{ opacity:1; transform: translateY(0) scale(1); } }
+
+  .level-card:hover, .level-card:focus-visible{ transform: translateY(-4px) scale(1.02); }
+  .level-card:active{ transform: translateY(0) scale(0.98); }
+  .level-card:focus-visible{ outline: 3px solid var(--ink); outline-offset: 3px; }
+
+  .level-card.locked{ cursor:default; }
+  .level-card.locked:hover{ transform: translateY(14px) scale(0.97); }
+
+  .level-number-badge{
+    width: clamp(64px, 18vw, 84px);
+    height: clamp(64px, 18vw, 84px);
+    border-radius: 20px;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Andika', sans-serif;
+    font-weight:700;
+    font-size: clamp(1.8rem, 5vw, 2.3rem);
+    color:#fff;
+  }
+  .level-card[data-color="unahur-green"] .level-number-badge{ background: var(--unahur-green); }
+  .level-card[data-color="unahur-blue"]  .level-number-badge{ background: var(--unahur-blue); }
+
+  .level-icon{
+    width: clamp(64px, 16vw, 84px);
+    height: clamp(64px, 16vw, 84px);
+    border-radius: 20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .level-icon svg{ width: 58%; height: 58%; }
+  .level-card[data-color="unahur-green"] .level-icon{ background: var(--unahur-green); }
+  .level-card[data-color="unahur-blue"]  .level-icon{ background: var(--unahur-blue); }
+  .level-card.locked .level-icon{ background: var(--border); }
+
+  .ribbon{
+    position:absolute;
+    top: 12px;
+    right: -30px;
+    background: var(--ink);
+    color:#fff;
+    font-size: 0.62rem;
+    font-weight:800;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    padding: 4px 34px;
+    transform: rotate(35deg);
+  }
+
+  .level-title{ font-weight:800; font-size: clamp(1.1rem, 3vw, 1.3rem); margin: 0; line-height:1.25; }
+  .level-desc{ font-size: 0.78rem; color: var(--ink-soft); margin:0; line-height:1.4; }
+  .level-card.locked .level-desc{ opacity: 0.6; }
+
+  /* ---------- Nivel 4: escenario de la letra grande (teclado) ---------- */
+
+  .stage{
+    position:relative;
+    width:100%;
+    max-width: 420px;
+    aspect-ratio: 1 / 1;
+    max-height: 42vh;
+    background:#fff;
+    border-radius: 28px;
+    border: 1px solid var(--border);
+    box-shadow: var(--card-shadow);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom: clamp(18px, 3vw, 30px);
+    overflow:hidden;
+    transition: background 0.25s ease;
+  }
+  .stage.is-vowel{ background: var(--vowel-wash); }
+  .stage.is-consonant{ background: var(--consonant-wash); }
+
+  .stage .letter{
+    font-family:'Andika', sans-serif;
+    font-weight:700;
+    font-size: clamp(6rem, 22vw, 11rem);
+    line-height:1;
+    color: var(--ink);
+    user-select:none;
+    position:relative;
+    z-index:2;
+  }
+  .stage .letter.placeholder{
+    color: var(--border);
+    font-size: clamp(2.2rem, 6vw, 2.6rem);
+    font-family:'Nunito', sans-serif;
+    font-weight:700;
+    max-width: 70%;
+    text-align:center;
+  }
+
+  .ripple{
+    position:absolute;
+    border-radius:50%;
+    border: 3px solid var(--vowel-accent);
+    width: 40%;
+    height: 40%;
+    opacity:0;
+    pointer-events:none;
+  }
+  .stage.is-consonant .ripple{ border-color: var(--consonant-accent); }
+  .ripple.animate{ animation: ripple-out 0.6s ease-out; }
+  @keyframes ripple-out{
+    0%   { transform: scale(1);   opacity: 0.55; }
+    100% { transform: scale(2.6); opacity: 0; }
+  }
+
+  .global-hint{
+    position: fixed;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.78rem;
+    font-weight:700;
+    color: var(--ink-soft);
+    background: #fff;
+    border: 1px solid var(--border);
+    padding: 8px 18px;
+    border-radius: 999px;
+    box-shadow: var(--card-shadow);
+    opacity:0;
+    pointer-events:none;
+    transition: opacity 0.2s ease;
+    z-index: 60;
+    white-space:nowrap;
+  }
+  .global-hint.show{ opacity:1; }
+
+  .keyboard{
+    width:100%; max-width: 760px;
+    display:grid; grid-template-columns: repeat(6, 1fr); gap: 8px;
+  }
+  @media (max-width: 480px){ .keyboard{ grid-template-columns: repeat(5, 1fr); gap:6px; } }
+
+  .key{
+    appearance:none;
+    border: 1px solid var(--border);
+    background:#fff;
+    border-radius: 12px;
+    padding: 12px 4px;
+    font-family:'Andika', sans-serif;
+    font-weight:700;
+    font-size: clamp(1.1rem, 3.4vw, 1.5rem);
+    color: var(--ink);
+    cursor:pointer;
+    transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.12s ease;
+    box-shadow: 0 2px 0 var(--border);
+  }
+  .key.is-vowel{ background: var(--vowel-wash); }
+  .key.is-consonant{ background: #fff; }
+  .key.is-digraph{ background: var(--consonant-wash); font-size: clamp(0.9rem, 2.6vw, 1.2rem); }
+  .key:active, .key.pressed{ transform: translateY(2px); box-shadow: 0 0 0 var(--border); }
+  .key:focus-visible{ outline: 3px solid var(--vowel-accent); outline-offset: 2px; }
+
+  /* ---------- Niveles 1, 2 y 3: cuántos sonidos tiene la palabra ---------- */
+  /* (misma mecánica, distinto color de acento y lista de palabras por nivel,
+     controlado por la variable --level-accent en cada pantalla) */
+
+  .progress-text{
+    font-weight:800;
+    font-size: 0.8rem;
+    color: var(--level-accent, var(--unahur-blue));
+    margin-bottom: 4px;
+  }
+
+  .word-stage{
+    position:relative;
+    width:100%;
+    max-width: 340px;
+    aspect-ratio: 1 / 1;
+    max-height: 34vh;
+    background:#fff;
+    border-radius: 28px;
+    border: 1px solid var(--border);
+    box-shadow: var(--card-shadow);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-bottom: clamp(16px, 3vw, 24px);
+    overflow:hidden;
+    transition: transform 0.15s ease;
+  }
+  .word-stage.shake{ animation: shake-x 0.4s ease; }
+  @keyframes shake-x{
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-8px); }
+    40%, 80% { transform: translateX(8px); }
+  }
+  .word-stage.celebrate{ animation: pop-scale 0.5s ease; }
+  @keyframes pop-scale{
+    0%   { transform: scale(1); }
+    40%  { transform: scale(1.06); }
+    100% { transform: scale(1); }
+  }
+
+  .word-stage img{
+    width:100%; height:100%; object-fit: contain; padding: 18px;
+  }
+  .word-stage .illustration{
+    width: 78%; height: 78%;
+  }
+  .word-stage .illustration svg{ width:100%; height:100%; display:block; }
+
+  .dots-row{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap: 8px;
+    min-height: 34px;
+    max-width: 340px;
+    margin-bottom: 16px;
+  }
+  .dot{
+    width: 26px; height: 26px; border-radius:50%;
+    background: var(--level-accent, var(--unahur-blue));
+    animation: dot-pop 0.25s ease;
+  }
+  @keyframes dot-pop{ from{ transform: scale(0); } to{ transform: scale(1); } }
+  .dots-row.correct .dot{ background: var(--unahur-green); }
+  .dots-row.wrong .dot{ background: var(--vowel-accent); }
+
+  .tap-button{
+    appearance:none;
+    border:none;
+    width: 128px; height: 128px;
+    border-radius: 50%;
+    background: var(--level-accent, var(--unahur-blue));
+    box-shadow: 0 4px 0 rgba(38,34,32,0.18), 0 14px 26px -12px rgba(38,34,32,0.35);
+    display:flex; align-items:center; justify-content:center;
+    cursor:pointer;
+    margin-bottom: 18px;
+    transition: transform 0.08s ease;
+  }
+  .tap-button svg{ width: 46%; height: 46%; }
+  .tap-button:active{ transform: translateY(3px); box-shadow: 0 1px 0 rgba(38,34,32,0.18); }
+  .tap-button:focus-visible{ outline: 3px solid var(--ink); outline-offset: 4px; }
+  .tap-button .count-num{
+    font-family: 'Nunito', sans-serif;
+    font-size: 3.4rem;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1;
+    user-select: none;
+  }
+
+  /* El botón que cuenta sonidos es más chico que el círculo grande de
+     "escuchar" (dictado, sonido escondido): antes medía lo mismo (128px) y
+     quedaba desproporcionado. Se lo achica pero se lo deja bastante más
+     grande que el botón de ayuda (pill), para que siga siendo el principal. */
+  .count-button{
+    width: 84px; height: 84px;
+    margin-bottom: 14px;
+  }
+  .count-button .count-num{ font-size: 2.2rem; }
+
+  .tap-hint{
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    font-weight:700;
+    margin: -10px 0 18px 0;
+    text-align:center;
+  }
+
+  /* Misma pinta que .tap-hint, pero con margen positivo: para usar DESPUÉS
+     de un bloque que ya termina justo (el tablero de unir-igual, las
+     opciones de completar-vocales), donde el margen negativo de .tap-hint
+     lo pegaba contra las tarjetas de arriba. */
+  .help-hint{
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    font-weight:700;
+    margin: 18px 0 4px 0;
+    text-align:center;
+  }
+
+  .action-row{
+    display:flex;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  .action-btn{
+    appearance:none;
+    border: 1px solid var(--border);
+    background:#fff;
+    color: var(--ink);
+    font-family:inherit;
+    font-weight:800;
+    font-size: 0.85rem;
+    padding: 10px 20px;
+    border-radius: 999px;
+    cursor:pointer;
+    box-shadow: 0 2px 0 var(--border);
+  }
+  .action-btn:active{ transform: translateY(2px); box-shadow:none; }
+  .action-btn.primary{
+    background: var(--unahur-green);
+    border-color: var(--unahur-green);
+    color:#fff;
+    box-shadow: 0 2px 0 #3f7a20;
+  }
+  .action-btn:disabled{ opacity:0.4; cursor:default; }
+
+  .help-btn{
+    appearance:none;
+    border: none;
+    background: var(--vowel-wash);
+    color: var(--vowel-accent);
+    font-family:inherit;
+    font-weight:800;
+    font-size: 0.85rem;
+    padding: 10px 22px;
+    border-radius: 999px;
+    cursor:pointer;
+    margin-top: 6px;
+    display:none;
+    align-items:center;
+    gap:8px;
+  }
+  .help-btn.show{ display:inline-flex; animation: card-in 0.4s ease; }
+
+  .level-complete{
+    width:100%; max-width: 420px; background:#fff;
+    border: 1px solid var(--border); border-radius: 24px;
+    box-shadow: var(--card-shadow); padding: 40px 28px; text-align:center;
+  }
+  .level-complete .icon{ font-size: 2.6rem; margin-bottom: 10px; }
+  .level-complete h2{ margin: 0 0 8px 0; font-size: 1.2rem; font-weight:800; }
+  .level-complete p{ margin: 0 0 20px 0; color: var(--ink-soft); font-size: 0.9rem; }
+
+  /* ---------- Actividad: ¿con qué letra comienza? ---------- */
+
+  .letter-options{
+    width:100%;
+    max-width: 360px;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+
+  .letter-option{
+    appearance:none;
+    border: 1px solid var(--border);
+    background:#fff;
+    border-radius: 16px;
+    padding: 16px 4px;
+    font-family:'Andika', sans-serif;
+    font-weight:700;
+    font-size: clamp(1.3rem, 5vw, 1.7rem);
+    color: var(--ink);
+    cursor:pointer;
+    box-shadow: 0 3px 0 var(--border);
+    transition: transform 0.08s ease, box-shadow 0.08s ease;
+  }
+  .letter-option:active{ transform: translateY(3px); box-shadow:none; }
+  .letter-option:focus-visible{ outline: 3px solid var(--level-accent, var(--unahur-blue)); outline-offset: 2px; }
+  .letter-option.correct{ background: var(--unahur-green); border-color: var(--unahur-green); color:#fff; }
+  .letter-option.wrong{ background: var(--vowel-accent); border-color: var(--vowel-accent); color:#fff; }
+  .letter-option:disabled{ cursor:default; }
+
+  /* ---------- Actividad: ¿cuál empieza igual? (arrastrar y unir) ---------- */
+
+  .match-progress{
+    font-weight:800;
+    font-size: 0.85rem;
+    color: var(--level-accent, var(--unahur-blue));
+    margin-bottom: 14px;
+  }
+
+  .match-board{
+    width:100%;
+    max-width: 420px;
+    display:flex;
+    justify-content:space-between;
+    gap: clamp(24px, 8vw, 60px);
+    touch-action: none;
+  }
+
+  .match-column{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap: 12px;
+  }
+
+  .match-card{
+    position:relative;
+    height: 64px;
+    border-radius: 16px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Nunito', sans-serif;
+    font-weight:800;
+    font-size: 0.9rem;
+    color:#fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+    box-shadow: 0 3px 0 rgba(38,34,32,0.15), 0 8px 16px -8px rgba(38,34,32,0.3);
+    user-select:none;
+    -webkit-user-select:none;
+  }
+
+  .match-column.left .match-card{ cursor: grab; }
+  .match-card.dragging{
+    cursor: grabbing;
+    position: fixed;
+    z-index: 50;
+    width: var(--drag-w);
+    pointer-events:none;
+    box-shadow: 0 10px 24px -6px rgba(38,34,32,0.45);
+    transition: none;
+  }
+
+  .match-card.matched{
+    opacity: 0.55;
+    box-shadow: none;
+  }
+  .match-card.matched::after{
+    content: '✓';
+    position:absolute;
+    top: -8px; right: -8px;
+    width: 24px; height: 24px;
+    border-radius:50%;
+    background: var(--unahur-green);
+    color:#fff;
+    display:flex; align-items:center; justify-content:center;
+    font-size: 0.8rem;
+    text-shadow:none;
+  }
+
+  .match-card.slot-empty{
+    background: transparent !important;
+    box-shadow: none;
+    border: 2px dashed var(--border);
+  }
+
+  .match-card img,
+  .match-card .card-illustration{
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+  }
+
+  @keyframes card-shake{
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    75% { transform: translateX(6px); }
+  }
+  .match-card.snap-wrong{ animation: card-shake 0.3s ease; }
+
+  /* ---------- Actividad: ¿cuántas palabras tiene la oración? ---------- */
+
+  .sentence-stage{
+    width:100%;
+    max-width: 420px;
+    min-height: 140px;
+    background:#fff;
+    border-radius: 28px;
+    border: 1px solid var(--border);
+    box-shadow: var(--card-shadow);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap: 14px;
+    padding: 26px 22px;
+    margin-bottom: clamp(16px, 3vw, 24px);
+    transition: transform 0.15s ease;
+  }
+  .sentence-stage.shake{ animation: shake-x 0.4s ease; }
+  .sentence-stage.celebrate{ animation: pop-scale 0.5s ease; }
+
+  .sentence-text{
+    font-family:'Andika', sans-serif;
+    font-weight:700;
+    font-size: clamp(1.05rem, 4vw, 1.35rem);
+    line-height:1.4;
+    color: var(--ink);
+    text-align:center;
+  }
+
+  .listen-btn{
+    appearance:none;
+    border:none;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background: var(--level-accent, var(--unahur-blue));
+    color:#fff;
+    font-family:inherit;
+    font-weight:800;
+    font-size: 0.82rem;
+    padding: 9px 18px;
+    border-radius: 999px;
+    cursor:pointer;
+  }
+  .listen-btn svg{ width:16px; height:16px; }
+  .listen-btn:active{ transform: translateY(2px); }
+
+  @media (prefers-reduced-motion: reduce){
+    .ripple.animate{ animation: none; opacity:0; }
+    .key:active, .key.pressed{ transform:none; }
+    .level-card{ animation: none; opacity:1; transform:none; }
+    .level-card:hover, .level-card:focus-visible, .level-card:active{ transform:none; }
+  }
+
+/* ---------- Imagen que todavía no existe (se ve el nombre de la palabra) ---------- */
+.word-stage .sin-imagen,
+.match-card .sin-imagen{
+  display:flex; align-items:center; justify-content:center; text-align:center;
+  width:100%; height:100%;
+  font-family:'Andika', sans-serif; font-weight:700;
+  color: var(--ink-soft);
+  border: 2px dashed var(--border); border-radius: 18px;
+  font-size: 0.9rem; padding: 8px;
+}
+
+/* ---------- Modo revisión (agregar ?revisar al final del link) ---------- */
+.revision{ width:100%; max-width: 920px; text-transform:none; font-size: 0.9rem; }
+.revision h1{ text-transform:none; }
+.revision h2{ font-size:1.05rem; margin: 26px 0 4px 0; }
+.revision h3{ font-size:0.9rem; margin: 14px 0 6px 0; color: var(--ink-soft); }
+.revision table{ width:100%; border-collapse:collapse; background:#fff; border:1px solid var(--border); border-radius:12px; overflow:hidden; }
+.revision th, .revision td{ padding: 6px 10px; text-align:left; border-bottom:1px solid var(--border); font-weight:500; }
+.revision th{ background: var(--vowel-wash); font-weight:800; font-size:0.78rem; }
+.revision .ok{ color: var(--unahur-green); font-weight:800; }
+.revision .mal{ color: #C62828; font-weight:800; }
+.revision .nota{ color: var(--ink-soft); }
+.revision .resumen{ background:#fff; border:1px solid var(--border); border-radius:14px; padding: 14px 18px; margin: 14px 0; }
+
+/* ---------- Tarjetas grandes para unir (imágenes más visibles) ---------- */
+.match-board.grande{ max-width: 460px; }
+.match-board.grande .match-card{
+  height: clamp(72px, calc((100vh - 250px) / 5 - 12px), 120px);
+}
+.match-board.grande .match-card img{ width: 84%; height: 84%; }
+
+/* ---------- Actividad: completar las vocales ---------- */
+.word-blanks{
+  display:flex; flex-wrap:wrap; justify-content:center; align-items:center;
+  gap: 8px;
+  max-width: 420px;
+  margin-bottom: clamp(16px, 3vw, 24px);
+  font-family:'Andika', sans-serif; font-weight:700;
+}
+.blank-letter, .blank-slot{
+  min-width: 44px; height: 58px;
+  display:flex; align-items:center; justify-content:center;
+  font-size: clamp(1.6rem, 7vw, 2.2rem);
+  color: var(--ink);
+}
+.blank-slot{
+  appearance:none;
+  font-family:'Andika', sans-serif; font-weight:700;
+  background:#fff;
+  border: 3px dashed var(--border);
+  border-radius: 14px;
+  cursor:pointer;
+  padding: 0 6px;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.blank-slot.active{ border-color: var(--level-accent, var(--unahur-blue)); border-style: solid; box-shadow: 0 0 0 4px rgba(5,163,200,0.15); }
+.blank-slot.filled{ border-style: solid; border-color: var(--unahur-green); background: #EEF7E8; cursor:default; }
+.blank-slot.wrong{ animation: shake-x 0.4s ease; border-color: var(--vowel-accent); background: var(--vowel-wash); }
+.word-blanks.correct .blank-letter{ color: var(--unahur-green); }
+.vowel-options{
+  width:100%; max-width: 420px;
+  display:grid; grid-template-columns: repeat(5, 1fr); gap: 10px;
+  margin-bottom: 18px;
+}
+.vowel-options .letter-option{ padding: 18px 4px; font-size: clamp(1.5rem, 6vw, 2rem); }
+
+/* ---------- Teclas vacías (tablero con solo algunas letras habilitadas) ---------- */
+.key.is-empty{
+  display:block;
+  min-height: 52px;
+  background: transparent;
+  border: 2px dashed var(--border);
+  box-shadow: none;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ---------- Actividad: sonido escondido ---------- */
+.sound-hunt-count{
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--level-accent, var(--unahur-blue));
+  margin: 4px 0 14px;
+}
+.sound-hunt-grid{
+  width:100%; max-width: 460px;
+  display:grid; grid-template-columns: repeat(auto-fit, minmax(min(100px, 28%), 1fr));
+  gap: 14px;
+}
+.sound-hunt-card{
+  position:relative;
+  aspect-ratio: 1 / 1;
+  background:#fff;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--card-shadow);
+  display:flex; align-items:center; justify-content:center;
+  padding: 10px;
+  cursor:pointer;
+  transition: transform 0.08s ease, opacity 0.15s ease;
+}
+.sound-hunt-card img{ width:80%; height:80%; object-fit: contain; }
+.sound-hunt-card:active{ transform: translateY(2px); }
+.sound-hunt-card:disabled{ cursor: default; }
+.sound-hunt-card.encontrada{ opacity: 0.55; border-color: var(--unahur-green); }
+.sound-hunt-card.encontrada::after{
+  content:'✓'; position:absolute; top:-8px; right:-8px;
+  width:26px; height:26px; border-radius:50%;
+  background: var(--unahur-green); color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:0.9rem;
+}
+.sound-hunt-card.descartada{ opacity: 0.4; animation: card-shake 0.3s ease; }
+.sound-hunt-card.descartada::after{
+  content:'✗'; position:absolute; top:-8px; right:-8px;
+  width:26px; height:26px; border-radius:50%;
+  background: var(--vowel-accent); color:#fff;
+  display:flex; align-items:center; justify-content:center; font-size:0.9rem;
+}
+
+/* ---------- Botoncito de parlante en las tarjetas de unir ---------- */
+.card-speaker{
+  appearance:none; border:none; padding:0;
+  position:absolute; right: 6px; bottom: 6px;
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--level-accent, var(--unahur-blue));
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer;
+  box-shadow: 0 2px 0 rgba(38,34,32,0.2);
+  z-index: 2;
+}
+.card-speaker svg{ width: 58%; height: 58%; }
+.card-speaker:active{ transform: translateY(1px); box-shadow:none; }
+.card-speaker:focus-visible{ outline: 3px solid var(--ink); outline-offset: 2px; }
+.match-card.matched .card-speaker{ opacity: 0.9; }
+
+/* Parlante sobre el dibujo (actividad completar vocales) */
+.word-stage .card-speaker{ width: 46px; height: 46px; right: 12px; bottom: 12px; }
+
+/* Rondas de 4 imágenes: cuadrícula de 2 x 2 */
+.sound-hunt-grid.cuatro{ grid-template-columns: repeat(2, 1fr); max-width: 300px; }
+
+/* ---------- Actividad: escribir la palabra ---------- */
+.write-word{
+  display:flex; flex-wrap:wrap; justify-content:center; gap: 8px;
+  max-width: 420px; margin-bottom: clamp(14px, 3vw, 22px);
+  font-family:'Andika', sans-serif; font-weight:700;
+}
+.write-box{
+  width: 46px; height: 58px;
+  display:flex; align-items:center; justify-content:center;
+  background:#fff; border: 3px solid var(--border); border-radius: 14px;
+  font-size: clamp(1.6rem, 7vw, 2.2rem); color: var(--ink);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.write-box.active{ border-color: var(--level-accent, var(--unahur-blue)); box-shadow: 0 0 0 4px rgba(5,163,200,0.15); }
+.write-box.filled{ border-color: var(--unahur-green); background:#EEF7E8; }
+.write-box.wrong{ animation: shake-x 0.4s ease; border-color: var(--vowel-accent); background: var(--vowel-wash); }
+.write-word.correct .write-box{ color: var(--unahur-green); }
+/* sin cajas: solo una línea, sin marcar cuántas letras son */
+.write-word.sin-cajas{ gap: 0; min-height: 58px; border-bottom: 4px solid var(--border); min-width: 220px; padding: 0 12px; }
+.write-word.sin-cajas .write-box{ width:auto; height:auto; min-width: 0; border:none; background:transparent; box-shadow:none; padding: 0 2px; }
+.write-keys{
+  width:100%; max-width: 440px;
+  display:grid; grid-template-columns: repeat(7, 1fr); gap: 7px;
+  margin-bottom: 18px;
+}
+.write-key{
+  appearance:none; font-family:'Andika', sans-serif; font-weight:700;
+  font-size: clamp(1.15rem, 5vw, 1.5rem);
+  padding: 11px 0; background:#fff; color: var(--ink);
+  border: 2px solid var(--border); border-radius: 12px;
+  box-shadow: 0 3px 0 var(--border); cursor:pointer;
+}
+.write-key:active{ transform: translateY(3px); box-shadow:none; }
+.write-key.wrong{ background: var(--vowel-accent); border-color: var(--vowel-accent); color:#fff; box-shadow:none; }
+.write-key:disabled{ cursor:default; opacity:.55; }
+
+/* ---------- Unir imagen con letra (mayúscula de imprenta) ---------- */
+.match-card.letra{ background:#fff; }
+.match-card .letra-grande{
+  font-family:'Andika', sans-serif; font-weight:700;
+  font-size: clamp(2.6rem, 14vw, 4rem); line-height:1; color: var(--ink);
+}
+.match-card.letra.matched .letra-grande{ color: var(--unahur-green); }
+/* Palabra escrita completa (Nivel 4: imagen con palabra) */
+.match-card .letra-grande.palabra{ font-size: clamp(1.5rem, 7.5vw, 2.2rem); letter-spacing: .04em; }
+/* La palabra va como una ETIQUETA (con agujerito) y el parlantito adentro, a la derecha */
+.match-card.palabra-escrita{
+  position:relative; flex-direction:row; align-items:center; justify-content:space-between; gap:6px;
+  padding: 0 8px 0 30px; background:#FFF6D6; border:2px solid #E3B63C;
+  border-radius: 6px 16px 16px 6px; box-shadow: 0 3px 0 #E3B63C;
+}
+.match-card.palabra-escrita::before{
+  content:''; position:absolute; left:9px; top:50%; width:11px; height:11px; margin-top:-5.5px;
+  border-radius:50%; background:#fff; border:2px solid #E3B63C;
+}
+.match-card.palabra-escrita .letra-grande.palabra{ flex:1; text-align:center; }
+.match-card.palabra-escrita .card-speaker{ position:static; flex:none; margin:0; }
+.match-card.palabra-escrita.matched{ background:#E8F6DE; border-color:var(--unahur-green); box-shadow:0 3px 0 var(--unahur-green); }
+.match-card.palabra-escrita.matched::before{ border-color:var(--unahur-green); }
+
+/* Cada imagen de "sonido escondido" lleva su parlante aparte (no es parte del botón) */
+.sound-hunt-item{ position:relative; }
+.sound-hunt-item .sound-hunt-card{ width:100%; }
+.sound-hunt-item .card-speaker{ right: 4px; bottom: 4px; width: 32px; height: 32px; }
+
+/* Fotos con cielo/fondo oscuro (luna, noche): ocupan todo el recuadro, sin marco blanco ni cuadrado recortado.
+   Se activa con  llenar: true  en contenido/palabras.js */
+.word-stage img.llena{ padding:0; object-fit:cover; }
+
+/* ---------- Ayuda: teclado desplegable (botón "A" junto a la consigna) ---------- */
+.screen{ position:relative; }
+.instruction-keyboard{
+  appearance:none; border:2px solid var(--level-accent, var(--unahur-blue));
+  position:absolute; top:-4px; right:0; z-index:5;
+  width:52px; height:38px; border-radius:12px; padding:5px 8px;
+  background:#fff; color: var(--level-accent, var(--unahur-blue));
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+  box-shadow: 0 2px 0 var(--border);
+}
+.instruction-keyboard svg{ width:100%; height:100%; }
+.instruction-keyboard.is-open{ background: var(--level-accent, var(--unahur-blue)); color:#fff; }
+.instruction-keyboard:active{ transform: translateY(1px); box-shadow:none; }
+
+.ayuda-panel{
+  position: fixed; left:0; right:0; bottom:0; z-index: 50;
+  background:#fff; border-top: 3px solid var(--level-accent, var(--unahur-blue));
+  box-shadow: 0 -8px 24px -10px rgba(38,34,32,0.25);
+  padding: 10px 10px 12px; max-height: 46vh; overflow-y:auto;
+  display:flex; flex-direction:column; align-items:center;
+}
+.ayuda-panel[hidden]{ display:none; }
+.ayuda-cerrar{
+  appearance:none; border:none; background:transparent; align-self:flex-end;
+  font-size:1.6rem; line-height:1; color: var(--ink-soft); cursor:pointer; padding:0 6px 4px;
+}
+.ayuda-grid{
+  width:100%; max-width: 560px;
+  display:grid; grid-template-columns: repeat(7, 1fr); gap: 6px;
+}
+@media (max-width: 480px){ .ayuda-grid{ grid-template-columns: repeat(6, 1fr); gap:5px; } }
+.ayuda-key{
+  appearance:none; border:1px solid var(--border); background:#fff;
+  border-radius:10px; height: 50px; padding:0;
+  font-family:'Andika', sans-serif; font-weight:700; font-size:1.25rem; color: var(--ink);
+  box-shadow: 0 2px 0 var(--border); cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+}
+.ayuda-key.is-vowel{ background: var(--vowel-wash); }
+.ayuda-key.is-digraph{ background: var(--consonant-wash); font-size:1rem; }
+.ayuda-key:active{ transform: translateY(2px); box-shadow:none; }
+/* La C: misma tecla que las demás, partida en dos mitades */
+.ayuda-key.ayuda-c{ overflow:hidden; display:grid; grid-template-columns: 1fr 1fr; gap:0; }
+.ayuda-c .mitad{
+  appearance:none; border:none; background:transparent; cursor:pointer;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  font-family:'Andika', sans-serif; font-weight:700; font-size:0.72rem; line-height:1.05; color: var(--ink);
+  padding:0;
+}
+.ayuda-c .mitad:first-child{ border-right:1px solid var(--border); }
+.ayuda-c .mitad:active{ background: var(--consonant-wash); }
+/* Deja lugar abajo para que el panel no tape el final de la actividad */
+body.con-ayuda-teclado{ padding-bottom: 46vh; }
+
+/* ---------- Marco de la aplicación (compu) ----------
+   Fuera: color de fondo con los colores de la UNaHur, para que se note que es
+   una aplicación. Dentro: un panel central claro donde está todo. */
+:root{
+  --marco-a: #BFE3A3;      /* verde suave */
+  --marco-b: #9ED8EA;      /* celeste suave */
+  --panel: #F4FAF1;        /* panel central, apenas coloreado */
+}
+html{ min-height:100%; }
+body{
+  background: linear-gradient(135deg, var(--marco-a) 0%, var(--marco-b) 100%) fixed;
+  padding: clamp(10px, 2.5vh, 28px) clamp(10px, 3vw, 40px);
+}
+#app{
+  width:100%; max-width: 860px;
+  background: var(--panel);
+  border-radius: 28px;
+  box-shadow: 0 2px 0 rgba(38,34,32,0.05), 0 22px 50px -22px rgba(30,70,60,0.45);
+  padding: clamp(14px, 3vh, 30px) clamp(14px, 3vw, 32px) clamp(16px, 3vh, 30px);
+  display:flex; flex-direction:column; align-items:center;
+}
+@media (max-width: 600px){
+  body{ padding:0; }
+  #app{ border-radius:0; box-shadow:none; min-height:100vh; }
+}
+
+/* ---------- Pantalla de inicio: entra entera sin tener que bajar ---------- */
+.home-hero{ margin-bottom: clamp(12px, 3vh, 30px); }
+.brand-mark{ margin-bottom: clamp(4px, 1vh, 10px); }
+@media (max-height: 760px) and (min-width: 601px){
+  .home-hero h1{ font-size: clamp(1.5rem, 3.4vw, 2rem); }
+  .level-card{ padding: 12px 12px 12px; gap: 6px; border-radius: 22px; }
+  .level-number-badge, .level-icon{ width: 56px; height: 56px; border-radius: 16px; font-size: 1.7rem; }
+  .levels-grid{ gap: 12px; }
+}
+@media (max-height: 620px) and (min-width: 601px){
+  .home-hero p{ font-size: 0.9rem; }
+  .level-number-badge, .level-icon{ width: 46px; height: 46px; font-size: 1.4rem; }
+  .level-card{ padding: 8px 10px; gap: 4px; }
+}
+
+/* La indicación ("Andá tocando…") */
+#app > .screen > footer, .screen > footer{
+  margin-top: clamp(10px, 2vh, 22px);
+  color: var(--ink);
+  font-weight:700;
+  font-size: 0.85rem;
+}
+/* Los créditos: separados con una raya y aparte, como un copyright */
+.credit-line{
+  width:100%; max-width: 640px;
+  margin-top: clamp(10px, 2.2vh, 24px);
+  padding-top: 10px;
+  border-top: 1px solid rgba(38,34,32,0.18);
+  font-size: 0.68rem; font-weight:500;
+  color: #8a8178;
+  letter-spacing: 0.03em;
+}
+.credit-line::before{ content: '© '; }
+
+/* El teclado de ayuda queda dentro del marco de la aplicación */
+.ayuda-panel{
+  left:50%; right:auto; width: min(860px, 100%); transform: translateX(-50%);
+  border-radius: 22px 22px 0 0; max-height: 42vh;
+}
+body.con-ayuda-teclado{ padding-bottom: 42vh; }
+@media (max-width: 600px){ .ayuda-panel{ border-radius:0; } }
+@media (min-width: 700px){
+  .ayuda-grid{ grid-template-columns: repeat(10, 1fr); max-width: 760px; }
+  .ayuda-key{ height: 46px; }
+}
+
+/* ---------- Festejos (aciertos y final de la actividad) ---------- */
+.efecto-capa{ position:fixed; inset:0; pointer-events:none; z-index: 200; overflow:hidden; }
+.chispa{
+  position:absolute; line-height:1; transform: translate(-50%, -50%);
+  animation: chispa-sale 0.95s ease-out forwards;
+}
+@keyframes chispa-sale{
+  0%{ opacity:0; transform: translate(-50%, -50%) scale(0.3); }
+  15%{ opacity:1; }
+  100%{ opacity:0; transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(1.1) rotate(40deg); }
+}
+.confeti{
+  position:absolute; top:-20px; border-radius:2px; opacity:0;
+  animation: confeti-cae 3s linear forwards;
+}
+@keyframes confeti-cae{
+  0%{ opacity:1; transform: translate(0,-20px) rotate(0); }
+  100%{ opacity:1; transform: translate(var(--vaiven), 110vh) rotate(var(--giro)); }
+}
+.level-complete{ animation: final-aparece 0.6s cubic-bezier(.2,1.4,.4,1) both; }
+.level-complete .icon{ font-size: 4rem; display:inline-block; animation: final-salta 1.1s ease-in-out 0.3s 3; }
+.level-complete h2{ font-size: 1.6rem; color: var(--unahur-green); }
+@keyframes final-aparece{ from{ opacity:0; transform: scale(0.6); } to{ opacity:1; transform: scale(1); } }
+@keyframes final-salta{ 0%,100%{ transform: translateY(0) rotate(0); } 30%{ transform: translateY(-18px) rotate(-12deg); } 60%{ transform: translateY(0) rotate(10deg); } }
+/* Las parejas que se unen "saltan" un poquito */
+.match-card.matched{ animation: pareja-pop 0.5s ease; }
+@keyframes pareja-pop{ 0%{ transform: scale(1); } 40%{ transform: scale(1.12); } 100%{ transform: scale(1); } }
+@media (prefers-reduced-motion: reduce){
+  .level-complete, .level-complete .icon, .match-card.matched{ animation:none; }
+}
+
+/* Teclas apagadas (letras que todavía no se trabajan en este nivel) */
+.ayuda-key.is-off, .ayuda-c .mitad.is-off{ opacity:0.3; cursor:default; box-shadow:none; background:#f0eee9; }
+.ayuda-key.is-off:active{ transform:none; }
+.ayuda-c .mitad.is-off:active{ background:transparent; }
+
+/* ---------- Tarjetas con parlante e íconos de actividad ---------- */
+.level-card{ user-select:none; }
+.card-speaker{
+  appearance:none; border:none; position:absolute; top:10px; right:10px; z-index:3;
+  width:36px; height:36px; border-radius:50%; padding:0;
+  background: var(--level-accent, var(--unahur-blue));
+  display:flex; align-items:center; justify-content:center; cursor:pointer;
+  box-shadow: 0 2px 0 rgba(38,34,32,0.18);
+}
+.level-card[data-color="unahur-green"] .card-speaker{ background: var(--unahur-green); }
+.level-card[data-color="unahur-blue"] .card-speaker{ background: var(--unahur-blue); }
+.card-speaker svg{ width:58%; height:58%; }
+.card-speaker:active{ transform: translateY(1px); box-shadow:none; }
+
+.indicacion{ margin-top: 2px; }
+.indicacion p{ font-weight:700; color: var(--ink); max-width: 560px; text-transform:none; }
+.home-hero .indicacion p{ font-size: clamp(0.9rem, 2.2vw, 1.05rem); }
+
+/* Mosaico del ícono de cada actividad */
+.level-icon.act-icon{
+  background:#fff !important; border: 3px solid var(--unahur-blue);
+  display:grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; gap:2px; padding:3px;
+  width: clamp(76px, 20vw, 96px); height: clamp(76px, 20vw, 96px); overflow:hidden;
+}
+.level-card[data-color="unahur-green"] .level-icon.act-icon{ border-color: var(--unahur-green); }
+.ico-cel{ display:flex; align-items:center; justify-content:center; overflow:hidden; border-radius:8px; background:#fff; min-width:0; min-height:0; }
+.ico-cel img{ width:100%; height:100%; object-fit:contain; }
+.ico-ficha{ background: var(--vowel-wash); font-family:'Andika',sans-serif; font-weight:700; font-size: 1.15rem; color: var(--ink); }
+.ico-ficha.larga{ grid-column: 1 / -1; font-size: 0.78rem; letter-spacing:.02em; background:#FFF6D6; }
+@media (max-height: 760px) and (min-width: 601px){
+  .level-icon.act-icon{ width:70px; height:70px; }
+}
+
+/* ---------- Botones "Volver" (se ven como botones y se escuchan) ---------- */
+.back-row{
+  display:flex; align-items:center; gap:10px; align-self:flex-start;
+  width:auto; max-width:100%; margin-bottom: clamp(10px, 2vh, 18px);
+  position:relative; z-index:6;
+}
+.back-btn{
+  appearance:none; cursor:pointer; font-family:inherit; font-weight:800; font-size:0.9rem;
+  display:inline-flex; align-items:center; gap:8px;
+  padding: 9px 16px 9px 12px; border-radius:999px;
+  background:#fff; color: var(--ink);
+  border: 2px solid var(--level-accent, var(--unahur-blue));
+  box-shadow: 0 3px 0 var(--level-accent, var(--unahur-blue));
+  text-transform: uppercase; letter-spacing:.01em;
+}
+.back-btn:active{ transform: translateY(3px); box-shadow:none; }
+.back-ico{ width:22px; height:22px; display:inline-flex; color: var(--level-accent, var(--unahur-blue)); }
+.back-ico svg{ width:100%; height:100%; }
+.back-row .instruction-speaker{ width:34px; height:34px; }
+/* En la pantalla final el botón va centrado */
+.level-complete .back-row{ justify-content:center; align-self:center; margin:6px 0 0; }
+.level-complete .instruction-row h2{ margin:0 0 8px; }
+.level-complete .instruction-row{ gap:10px; }
+@media (max-width: 380px){ .back-btn{ font-size:0.8rem; padding:8px 12px 8px 9px; } }
+
+/* ---------- Parlantes discretos (efecto "marca de agua") ----------
+   Los parlantitos de consignas, tarjetas, imágenes y botones de volver no
+   compiten con el contenido: fondo clarito del color del nivel y el dibujo
+   del parlante en el mismo color, suave. Siguen visibles y fáciles de tocar.
+   (El parlante GRANDE de las actividades de "escuchá el sonido" queda fuerte,
+   porque es lo que hay que tocar.) */
+.instruction-speaker, .card-speaker{
+  --sp: var(--level-accent, var(--unahur-blue));
+  background: color-mix(in srgb, var(--sp) 14%, #fff);
+  color: color-mix(in srgb, var(--sp) 80%, #fff);
+  box-shadow: none;
+  border: 1.5px solid color-mix(in srgb, var(--sp) 28%, #fff);
+}
+.level-card[data-color="unahur-green"] .card-speaker{ --sp: var(--unahur-green); background: color-mix(in srgb, var(--sp) 14%, #fff); }
+.level-card[data-color="unahur-blue"]  .card-speaker{ --sp: var(--unahur-blue);  background: color-mix(in srgb, var(--sp) 14%, #fff); }
+.instruction-speaker:active, .card-speaker:active{ background: color-mix(in srgb, var(--sp) 26%, #fff); }
+/* Sobre fotos: un poquito de blanco detrás para que se lea sin resaltar */
+.match-card .card-speaker, .sound-hunt-item .card-speaker, .word-stage .card-speaker{
+  background: color-mix(in srgb, var(--sp) 12%, rgba(255,255,255,0.85));
+}
+.instruction-speaker svg{ width:66%; height:66%; }
+
+
+/* ===== Contar sonidos: marcador + botón "Tocá" ===== */
+.count-row{
+  display:flex; align-items:center; justify-content:center;
+  gap: 14px; margin: 4px 0 10px; flex-wrap:wrap;
+}
+.count-display{
+  min-width: 92px; padding: 8px 16px;
+  background:#fff; border:2px solid var(--border); border-radius: 20px;
+  display:flex; flex-direction:column; align-items:center; line-height:1;
+  transition: background .2s, border-color .2s;
+}
+.count-display .count-label{
+  font-size:.68rem; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+  color: var(--ink-soft); margin-bottom:4px;
+}
+.count-display .count-num{
+  font-family:'Nunito',sans-serif; font-size:2.4rem; font-weight:900;
+  color: var(--ink); line-height:1;
+}
+.count-display.tiene-toques{ border-color: var(--level-accent, var(--unahur-blue)); }
+.count-display.tiene-toques .count-num{ color: var(--level-accent, var(--unahur-blue)); }
+.count-display .count-num.pop{ animation: pop-scale .25s ease; }
+.count-display.correct{ border-color: var(--unahur-green); background:#EAF6E2; }
+.count-display.correct .count-num{ color: var(--unahur-green); }
+.count-display.wrong{ border-color: var(--vowel-accent); }
+.count-display.wrong .count-num{ color: var(--vowel-accent); }
+
+.count-tap{
+  appearance:none; border:none; cursor:pointer;
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  min-width: 170px; height: 76px; padding: 0 28px;
+  border-radius: 999px;
+  background: var(--level-accent, var(--unahur-blue)); color:#fff;
+  font-family:inherit; font-weight:900; font-size:1.5rem; letter-spacing:.03em; text-transform:uppercase;
+  box-shadow: 0 5px 0 rgba(38,34,32,.22), 0 14px 26px -12px rgba(38,34,32,.35);
+  transition: transform .08s ease;
+}
+.count-tap svg{ width:34px; height:34px; flex-shrink:0; }
+.count-tap:active{ transform: translateY(4px); box-shadow: 0 1px 0 rgba(38,34,32,.22); }
+.count-tap:focus-visible{ outline:3px solid var(--ink); outline-offset:4px; }
+
+.tap-hint-row{ margin: 0 0 14px; }
+.tap-hint-row .tap-hint{ margin:0; }
+.word-stage + .dots-row{ margin-top: 2px; }
+
+.count-row + .instruction-row{ margin-top:4px; }
+.dots-row{ min-height: 30px; margin-bottom: 8px; }
+.dot{ width:22px; height:22px; }
