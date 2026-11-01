@@ -56,4 +56,4 @@ Para revisar que no falte ninguna imagen ni audio, abrir la app agregando `?revi
 
 ## Créditos
 
-Diseño, contenido y desarrollo: Betty · Trabajo final de la Licenciatura en Alfabetización Inicial, Universidad Nacional de Hurlingham (UNaHur).
+Autoras: Beatriz Hernández y Liliana Yovine · Trabajo final de la Licenciatura en Alfabetización Inicial, Universidad Nacional de Hurlingham (UNaHur).
