@@ -45,8 +45,8 @@ AS.letras = [
    GRUPOS DE LETRAS (para el teclado de ayuda de cada nivel)
    ------------------------------------------------------------
      vocal        a e i o u
-     prolongable  consonantes que se pueden "estirar": f j l ll m n ñ r rr s v y z
-     explosiva    consonantes que suenan de golpe: b c ch d g k p q t
+     prolongable  consonantes que se pueden "estirar": b d f g j l ll m n ñ r rr s v y z (y la C ante e/i)
+     explosiva    consonantes que suenan de golpe: ch k p q t (y la C ante a/o/u)
      otra         h (muda), w, x
    Cada nivel decide qué grupos suenan en su teclado: ver "teclado" en
    contenido/niveles.js. Las demás teclas se ven apagadas.
