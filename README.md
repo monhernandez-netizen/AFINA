@@ -8,7 +8,7 @@ AFINA es una aplicación web para entrenar la conciencia fonológica jugando: es
 
 Trabajo final de la Licenciatura en Alfabetización Inicial · UNaHur.
 
-**Probala acá:** https://monhernandez-netizen.github.io/alfabeto-sonoro/
+**Probala acá:** https://monhernandez-netizen.github.io/afina/
 
 ## Qué tiene
 
