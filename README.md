@@ -54,6 +54,14 @@ Para revisar que no falte ninguna imagen ni audio, abrir la app agregando `?revi
 - `icons/`, `manifest.webmanifest`, `sw.js`: ícono y versión instalable (funciona sin conexión).
 - `version-anterior/`: versión previa del proyecto, conservada como archivo.
 
+## Próximos pasos
+
+- Alinear los niveles con la clasificación de letras definida por las autoras (B, D, G y C ante e/i como prolongables).
+- Completar el material: sonido de la H e imágenes para K, Q, W, X, Y y Z.
+- Prueba piloto con estudiantes y prueba de ubicación.
+- Registro opcional con usuario, con consentimiento y protección de datos de menores.
+- Publicación en Google Play.
+
 ## Créditos
 
 Autoras: Beatriz Hernández y Liliana Yovine · Trabajo final de la Licenciatura en Alfabetización Inicial, Universidad Nacional de Hurlingham (UNaHur).
