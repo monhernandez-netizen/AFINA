@@ -87,10 +87,10 @@ AS.ui = (function(){
         grilla.appendChild(el('div', { class: 'ayuda-key ayuda-c' },
           el('button', { class: 'mitad' + (ceciOn ? '' : ' is-off'), disabled: ceciOn ? false : true,
               'aria-label': 'Sonido de ce, ci', onclick: () => sonar(SONIDO_CE_CI) },
-            el('span', {}, 'ce'), el('span', {}, 'ci')),
+            el('span', {}, 'CE'), el('span', {}, 'CI')),
           el('button', { class: 'mitad' + (cacocuOn ? '' : ' is-off'), disabled: cacocuOn ? false : true,
               'aria-label': 'Sonido de ca, co, cu', onclick: () => sonar(SONIDO_CA_CO_CU) },
-            el('span', {}, 'ca'), el('span', {}, 'co'), el('span', {}, 'cu'))
+            el('span', {}, 'CA'), el('span', {}, 'CO'), el('span', {}, 'CU'))
         ));
         return;
       }

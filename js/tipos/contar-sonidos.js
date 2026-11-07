@@ -9,6 +9,7 @@
    "Ayuda" aparte.
 
    Configuración que lee de niveles.js:
+     sinParlantePalabra: true   (opcional: no muestra el parlantito sobre el dibujo)
      palabras: ['pato', 'mesa', ...]   (cada una necesita "sonidos"
                                         en contenido/palabras.js)
    ============================================================ */
@@ -78,7 +79,7 @@ AS.tipos['contar-sonidos'] = {
       escenario.appendChild(AS.ui.imagenPalabra(palabra.id));
       // Parlantito sobre el dibujo: dice la palabra estirada (ayuda/{id}.mp3);
       // si no está grabada, el nombre normal (voz/{id}.mp3)
-      escenario.appendChild(el('button', {
+      if (!actividad.sinParlantePalabra) escenario.appendChild(el('button', {
         class: 'card-speaker',
         'aria-label': 'Escuchar la palabra',
         html: AS.ui.ICONO_PARLANTE_CHICO,

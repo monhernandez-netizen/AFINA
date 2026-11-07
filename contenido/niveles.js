@@ -362,6 +362,7 @@ AS.niveles = [
       // Falta grabar ayuda/{palabra}.mp3 de plato, globo, clavo, dragon y tren.
       { id: 'contar-trabadas',
         tipo: 'contar-sonidos',
+        sinParlantePalabra: true,
         palabras: ['plato', 'globo', 'clavo_foto', 'dragon_foto', 'tren_foto'] },
 
       // Act. 4: escribir la palabra mirando la imagen (las mismas 5 de la Act. 1).
