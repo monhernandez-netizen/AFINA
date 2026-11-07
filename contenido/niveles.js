@@ -336,6 +336,7 @@ AS.niveles = [
         consigna: 'Arrastrá la imagen sobre la palabra correcta',
         mensajeFinal: 'Uniste cada imagen con su palabra.',
         botonSonido: true,
+        sinSonidoPalabras: true,   // las palabras escritas no tienen parlantito (las imágenes sí)
         tarjetasGrandes: true,
         // bruja · tren · globo · jaula · ogro
         izquierda: ['bruja_foto', 'tren_foto', 'globo', 'jaula', 'ogro_foto'],
@@ -362,7 +363,6 @@ AS.niveles = [
       // Falta grabar ayuda/{palabra}.mp3 de plato, globo, clavo, dragon y tren.
       { id: 'contar-trabadas',
         tipo: 'contar-sonidos',
-        sinParlantePalabra: true,
         palabras: ['plato', 'globo', 'clavo_foto', 'dragon_foto', 'tren_foto'] },
 
       // Act. 4: escribir la palabra mirando la imagen (las mismas 5 de la Act. 1).

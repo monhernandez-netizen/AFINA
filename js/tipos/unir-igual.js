@@ -26,6 +26,7 @@
                               de la izquierda se une con SU palabra (se valida la
                               palabra completa, no solo la inicial). Con botonSonido,
                               cada palabra tiene su parlantito (voz/{id}.mp3).
+     sinSonidoPalabras: true (opcional) las palabras escritas no llevan parlantito
      botonSonido: true       (opcional) cada tarjeta muestra un botoncito
                               de parlante; al tocarlo suena la palabra
                               (voz/{id}.mp3). Arrastrar NUNCA hace sonar.
@@ -91,7 +92,7 @@ AS.tipos['unir-igual'] = {
       const tarjeta = el('div', { class: 'match-card letra palabra-escrita', 'aria-label': `Palabra ${palabra.texto}` },
         el('span', { class: 'letra-grande palabra' }, palabra.texto.toUpperCase()));
       tarjeta.dataset.inicial = palabra.texto.toUpperCase();   // se valida la palabra completa
-      if (conSonido) tarjeta.appendChild(crearBotonSonido(palabra));
+      if (conSonido && !actividad.sinSonidoPalabras) tarjeta.appendChild(crearBotonSonido(palabra));
       return tarjeta;
     }
 
